@@ -41,6 +41,22 @@ class Trie {
     currNode['children'][pos] = this.insertNodes(currNode['children'][pos], str, ++level);
     return currNode;
   }
+
+  includes(key) {
+      return this.search(this.root, key, 0);
+  }
+
+  search(currNode, str, level) {
+      let index, res;
+      index = str.charCodeAt(level)-97, res = false;
+      if(currNode['children'][index]) {
+          console.log(currNode, index, level);
+          res = this.search(currNode['children'][index], str, ++level);
+          if(level === str.length-1)
+            return res;
+      }
+      return res;
+  }
 }
 
 class Node {

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BST</title>
+    <script src="app2.js"></script>
+</head>
+<body onload="displayBST()">
+    <form>
+        <div class="form-group">
+            <label for="num">Number</label>
+            <input type="number" name="num" id="num">
+        </div>
+        <input type="button" value="Insert" onclick="insert(num.value)">
+        <input type="button" value="Remove" onclick="remove(num.value)">
+    </form>
+    <div>
+        <p id="BST">[]</p>
+        Size: <span id="size"></span>
+    </div>
+</body>
+</html>

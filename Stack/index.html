@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack</title>
+    <script src="app.js"></script>
+</head>
+<body onload="displayStack()">
+    <form>
+        <div class="form-group">
+            <label for="num">Number</label>
+            <input type="number" name="num" id="num">
+        </div>
+        <input type="button" value="Push" onclick="push(num.value)">
+        <input type="button" value="Pop" onclick="pop()">
+    </form>
+    <div>
+        <p id="stack">[]</p>
+    </div>
+</body>
+</html>

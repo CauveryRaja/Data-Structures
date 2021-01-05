@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Union Find</title>
+    <script src="app3.js"></script>
+</head>
+<body onload = "unionFind()">
+    <form>
+        <div class="form-group">
+            <label for="num">Node 1</label>
+            <input type="number" name="node1" id="node1">
+        </div>
+        <div class="form-group">
+            <label for="num">Node 2</label>
+            <input type="number" name="node2" id="node2">
+        </div>
+        <div class="form-group">
+            <label for="num">Weight</label>
+            <input type="number" name="weight" id="weight">
+        </div>
+        <input type="button" value="Add" onclick="addEdge(node1.value, node2.value, weight.value)">
+        <input type="button" value="Kruskal" onclick="kruskal()">
+    </form>
+    <div>
+        Edges: <p id="edges">[]</p>
+        Ids: <p id="unionFind">[]</p>
+        Sizes: <span id="sizes"></span>
+        Comp Size: <span id="compSize"></span>
+        MST: <p id="mst">[]</p>
+        MST Weight: <p id="mstWeight">0</p>
+    </div>
+</body>
+</html>

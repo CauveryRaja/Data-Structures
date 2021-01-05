@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Array</title>
+    <script src="app.js"></script>
+</head>
+<body onload="displayArray()">
+    <form>
+        <div class="form-group">
+            <label for="num">Number</label>
+            <input type="number" name="num" id="num">
+        </div>
+        <div class="form-group">
+            <label for="pos">Position</label>
+            <input type="number" name="pos" id="pos">
+        </div>
+        <input type="button" value="Insert" onclick="insertNum(num.value, pos.value)">
+        <input type="button" value="Remove" onclick="removeNum()">
+        <input type="button" value="Clear" onclick="clearArray()">
+    </form>
+    <div>
+        <p id="dynArr">[]</p>
+    </div>
+</body>
+</html>
