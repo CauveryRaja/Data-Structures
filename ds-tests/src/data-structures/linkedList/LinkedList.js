@@ -23,6 +23,20 @@ class LinkedList {
         this.length++;
     }
 
+    delete(data) {
+        if(this.root.data == data) {
+            this.root = this.root.next;
+        }
+        else {
+            let currNode = this.root;
+            while(currNode.next.data != data) {
+                currNode = currNode.next;
+            }
+            currNode.next = currNode.next.next;
+        }
+        this.length--;
+    }
+
     get(index) {
         let currNode, count;
         currNode = this.root;
@@ -32,6 +46,20 @@ class LinkedList {
             count++;
         }
         return currNode.data;
+    }
+
+    indexOf(data) {
+        let currNode, count;
+        currNode = this.root;
+        count = 0;
+        while(currNode != null) {
+            if(currNode.data == data) {
+                return count;
+            }
+            currNode = currNode.next;
+            count++;
+        }
+        return -1;
     }
 }
 
