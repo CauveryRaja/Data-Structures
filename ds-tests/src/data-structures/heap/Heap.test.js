@@ -23,5 +23,18 @@ describe('Heap implementation' , () => {
         heap.insert(7);
 
         expect(heap.isValid()).toBeTruthy();
-    })
+    });
+
+    it('Should insert elements into Heap', () => {
+        const heap = new Heap();
+        let min, secondMin;
+
+        heap.construct([2, 0, 4, 3, 8, 5, 6, 1]);
+        min = heap.poll();
+        secondMin = heap.poll();
+
+        expect(min).toBe(0);
+        expect(secondMin).toBe(1);
+        expect(heap.isValid()).toBeTruthy();
+    });
 });
