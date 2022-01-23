@@ -1,7 +1,7 @@
 class Heap {
-    constructor() {
-        this.arr = [];
-        this.length = 0;
+    constructor(data) {
+        this.arr = data ? data : [];
+        this.length = data ? data.length : 0;
     }
 
     insert(data) {
@@ -31,11 +31,18 @@ class Heap {
         leftChild = 2*index + 1;
         rightChild = 2*index + 2;
 
-        minChild = this.arr[leftChild] < this.arr[rightChild] ? leftChild : rightChild;
+        minChild = this.arr[leftChild] && this.arr[rightChild] 
+                    && this.arr[leftChild] > this.arr[rightChild] ? rightChild : leftChild;
 
         if(this.arr[index] > this.arr[minChild]) {
             this.swap(index, minChild);
             this.sink(minChild);
+        }
+    }
+
+    heapify() {
+        for(let i=Math.ceil(this.length/2)-1; i>=0; i--) {
+            this.sink(i);
         }
     }
 

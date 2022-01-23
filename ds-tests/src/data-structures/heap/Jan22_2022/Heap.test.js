@@ -32,4 +32,15 @@ describe('Heap data structure', () => {
         expect(heap.delete()).toBe(3);
         expect(heap).toHaveLength(1);
     });
+
+    it('should reorder heap using heapify', () => {
+        const heap = new Heap([5, 2, 3, 1]);
+
+        heap.heapify();
+
+        expect(heap.delete()).toBe(1);
+        expect(heap.delete()).toBe(2);
+        expect(heap.delete()).toBe(3);
+        expect(heap.delete()).toBe(5);
+    });
 });
