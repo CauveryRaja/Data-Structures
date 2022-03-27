@@ -24,6 +24,43 @@ class BinarySearchTree {
         }
     }
 
+    traverse(order) {
+        let arr = [];
+        switch(order) {
+            case 'preorder': this.traversePreorder(this.tree, arr); 
+                            break;
+            case 'postorder': this.traversePostorder(this.tree, arr); 
+                            break;
+            case 'inorder':
+            default: this.traverseInorder(this.tree, arr);
+        }
+        console.log(`${order} nodes`, arr);
+    }
+
+    traverseInorder(currNode, arr) {
+        if(currNode) {
+            this.traverseInorder(currNode.leftChild, arr);
+            arr.push(currNode.data);
+            this.traverseInorder(currNode.rightChild, arr);
+        }
+    }
+
+    traversePreorder(currNode, arr) {
+        if(currNode) {
+            arr.push(currNode.data);
+            this.traversePreorder(currNode.leftChild, arr);
+            this.traversePreorder(currNode.rightChild, arr);
+        }
+    }
+
+    traversePostorder(currNode, arr) {
+        if(currNode) {
+            this.traversePostorder(currNode.leftChild, arr);
+            this.traversePostorder(currNode.rightChild, arr);
+            arr.push(currNode.data);
+        }
+    }
+
     delete(data) {
         this.deleteByTraversing(this.tree, data);
     }
@@ -76,5 +113,9 @@ bst.insert(0);
 bst.insert(7);
 bst.insert(2);
 
-bst.delete(2);
+bst.traverse('inorder');
+bst.traverse('preorder');
+bst.traverse('postorder');
+
+// bst.delete(2);
 console.log(bst);
