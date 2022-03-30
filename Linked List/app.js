@@ -27,6 +27,24 @@ class LinkedList {
         }
         this.length++;
     }
+
+    findMiddleElm2(list) {
+        let slowCursor, fastCursor;
+    
+        slowCursor = list;
+        fastCursor = list;
+    
+        while(fastCursor != null) {
+            if(fastCursor.next) {
+                fastCursor = fastCursor.next.next;
+                slowCursor = slowCursor.next;
+            }
+            else {
+                break;
+            }
+        }
+        return slowCursor.data;
+    }
 }
 
 class Node {
@@ -42,4 +60,6 @@ list.insert(5);
 list.insert(2);
 list.insert(3, 1);
 list.insert(15, 3);
+list.insert(20);
+// list.insert(25, 1);
 console.log(list);

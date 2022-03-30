@@ -18,3 +18,22 @@ function findMiddleElm(list) {
     }
     return iterate(list, 0);
 }
+
+// Two pointers - n/2 time
+function findMiddleElm2(list) {
+    let slowCursor, fastCursor;
+
+    slowCursor = list;
+    fastCursor = list;
+
+    while(fastCursor != null) {
+        if(fastCursor.next) {
+            fastCursor = fastCursor.next.next;
+            slowCursor = slowCursor.next;
+        }
+        else {
+            break;
+        }
+    }
+    return slowCursor.data;
+}
