@@ -25,15 +25,25 @@ function reverse(list) {
     return head;
 }
 
+// Recursive approach
 function reverse(list) {
-    recursiveReverse(list);
+    let newList = {};
+    recursiveReverse(list, newList);
+    return newList;
 }
 
-function recursiveReverse(currNode) {
+// 5 -> 10 -> 15 ->20
+
+
+function recursiveReverse(currNode, newHead) {
     if(currNode.next) {
-        let prevNode = recursiveReverse(currNode.next);
+        let prevNode = recursiveReverse(currNode.next, newHead);
         prevNode.next = currNode;
-        return prevNode; // Check this
+        // return prevNode; // Check this
+    }
+    else {
+        newHead = currNode;
+        return newHead;
     }
     return currNode;
 }
