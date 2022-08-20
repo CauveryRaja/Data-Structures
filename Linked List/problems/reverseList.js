@@ -12,40 +12,18 @@ let list = {
     }
 };
 
-function reverse(list) {
-    let head = list;
+// Working implementation
+function reverse(head) {
+    let nextNode = head.next;
+    head.next = null;
 
-    console.log('before loop', head);
-    // while(head.next) {
-    //     console.log('in loop', head);
-    //     let prevHead = head;
-    //     head = head.next;
-    //     head.next = prevHead;
-    // }
+    while(nextNode != null) {
+        let temp = nextNode.next;
+        nextNode.next = head;
+        head = nextNode;
+        nextNode = temp;
+    }
+
     return head;
 }
-
-// Recursive approach
-function reverse(list) {
-    let newList = {};
-    recursiveReverse(list, newList);
-    return newList;
-}
-
-// 5 -> 10 -> 15 ->20
-
-
-function recursiveReverse(currNode, newHead) {
-    if(currNode.next) {
-        let prevNode = recursiveReverse(currNode.next, newHead);
-        prevNode.next = currNode;
-        // return prevNode; // Check this
-    }
-    else {
-        newHead = currNode;
-        return newHead;
-    }
-    return currNode;
-}
-
-console.log(reverse(list));
+reverse(list);
